@@ -24,7 +24,7 @@ public class ProdutoRouter extends BaseRouterBuilder {
     @Override
     public void configure() throws Exception {
         rest("/produto/")
-                    .get("/listar-produtos")
+                .get("/listar-produtos")
                 .description("Serviço para Listar Produtos")
                 .id("ms-produto-lista")
                 .produces(MediaType.APPLICATION_JSON_VALUE)
@@ -34,7 +34,7 @@ public class ProdutoRouter extends BaseRouterBuilder {
                 .to("direct:listar-produtos");
         from("direct:listar-produtos").process(processorProduto);
 
-        rest("/produto/produto?bridgeEndpoint=true/")
+        rest("/produto-inserir")
                 .post()
                 .description("Serviço de inclusão de novo Produto")
                 .produces(MediaType.APPLICATION_JSON_VALUE)

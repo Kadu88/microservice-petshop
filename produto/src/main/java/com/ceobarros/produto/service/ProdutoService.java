@@ -2,6 +2,7 @@ package com.ceobarros.produto.service;
 
 import com.ceobarros.produto.dao.ProdutoDao;
 import com.ceobarros.produto.model.Produto;
+import com.ceobarros.produto.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -18,15 +19,19 @@ public class ProdutoService implements Serializable {
      */
     private static final long serialVersionUID = 4447928027024030782L;
 
+    //@Autowired
+   // private ProdutoDao produtoDao;
+
     @Autowired
-    private ProdutoDao produtoDao;
+    private ProdutoRepository produtoRepository;
 
     public Iterable<Produto> findAll() {
-        return produtoDao.findAll();
+        return produtoRepository.findAll();
     }
 
-    public void inserirProduto(Produto produto) {
-        produtoDao.incluirProduto(produto);
+    public Produto inserirProduto(Produto produto) {
+        final Produto produtoSalvo = produtoRepository.save(produto);
+        return produtoSalvo;
     }
 
 }
