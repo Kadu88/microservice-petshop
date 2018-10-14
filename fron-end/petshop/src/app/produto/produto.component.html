@@ -1,0 +1,96 @@
+<h2 style="text-align: center">Produto</h2>
+
+<mat-tab-group dynamicHeight mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+  <mat-tab disabled>
+
+    <mat-card>
+      <mat-table #table [dataSource]="produtos" matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
+
+        <ng-container matColumnDef="nome">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Nome</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.nome}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="ativo">
+          <mat-header-cell *matHeaderCellDef>Ativo</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.ativo ? 'Sim' : 'Não'}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="onEdit(row)">
+              <mat-icon>create</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="onDelete(row)">
+              <mat-icon>delete_sweep</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator [length]="resultsLength" [pageSize]="size">
+      </mat-paginator>
+    </mat-card>
+
+  </mat-tab>
+
+  <mat-tab disabled>
+    <mat-card>
+
+      <form #form=ngForm (ngSubmit)="onSubmit()">
+        <mat-error *ngIf="form.submitted && form.invalid">
+          Favor preencher todos os campos obrigatórios
+        </mat-error>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Nome do produto</mat-label>
+          <input matInput maxlength="256" name="nome" [(ngModel)]="produto.nome" required>
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Selecione a Categoria do Produto</mat-label>
+              <input matInput maxlength="256" name="categoria" [(ngModel)]="produto.categoria" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-auto">
+            <mat-form-field appearance="outline">
+              <mat-label>Quantidade</mat-label>
+              <input matInput maxlength="256" name="quantidade" [(ngModel)]="produto.quantidade" required>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Descrição do produto</mat-label>
+          <input matInput maxlength="256" name="descricao" [(ngModel)]="produto.descricao" required>
+        </mat-form-field>
+
+        <button type="button" class="mat-raised-button mat-primary">
+          Anexar Imagem
+        </button>
+        &nbsp;
+        <button type="submit" class="mat-raised-button mat-primary">
+          Gravar
+        </button>
+      </form>
+
+    </mat-card>
+
+  </mat-tab>
+</mat-tab-group>
+
+<span class="fab" style="z-index: 9999;">
+  <button mat-fab (click)="openCadastro()" *ngIf="selected.value == 0">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-fab (click)="openListar()" *ngIf="selected.value == 1">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</span>
