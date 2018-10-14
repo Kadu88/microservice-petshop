@@ -1,11 +1,10 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { environment } from '../environments/environment';
 
-// const URL = environment.URL;
-const URL = 'http://localhost:8081/produto/listar-produtos';
+
+const URL = environment.URL;
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +13,10 @@ export class RestService {
   private headers: HttpHeaders;
 
   constructor(private http: HttpClient) {
-    this.headers = new HttpHeaders().set(
-      'Content-Type',
-      'application/json; charset-UTF-8'
-    );
+    // this.headers = new HttpHeaders().set(
+    //   'Content-Type',
+    //   'application/json; charset-UTF-8'
+    // );
   }
 
   public get(path: string, params?: HttpParams): Observable<any> {
