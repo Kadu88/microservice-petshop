@@ -6,17 +6,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Blob;
 
 
 /**
  * The persistent class for the TB_PRODUTO database table.
  */
-@Entity(name="produto")
+@Entity(name = "produto")
 @Table(name = "tb_produto", schema = "pet_data_produto")
 @JsonInclude(content = Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -42,6 +44,13 @@ public class Produto implements Serializable {
     @NotNull(message = "O campo Município é obrigatório")
     @Size(max = 999999999, min = 0, message = "Tamanho máximo do campo Localidade é 999999999")
     private Long quantidade;
+//    @Column(name = "valor")
+//    @NotNull(message = "O campo Valor é obrigatório")
+//    @Size(max = 999999999, min = 0, message = "Tamanho máximo do campo valor é 999999999")
+//    private Double valor;
+//    @Lob
+//    @Column(name = "imagem", nullable=true, columnDefinition="mediumblob")
+//    private Blob imagem;
 
     public Produto() {
     }
@@ -53,7 +62,7 @@ public class Produto implements Serializable {
         this.quantidade = quantidade;
     }
 
-    //TODO Incluir imagem blob
+//TODO Incluir imagem blob
 
     public Long getIdProduto() {
         return idProduto;
@@ -94,4 +103,5 @@ public class Produto implements Serializable {
     public void setQuantidade(Long quantidade) {
         this.quantidade = quantidade;
     }
+
 }
