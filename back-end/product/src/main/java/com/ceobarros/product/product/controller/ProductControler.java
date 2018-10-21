@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerF
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @RestController
 public class ProductControler {
@@ -34,7 +34,7 @@ public class ProductControler {
     }
 
     @RequestMapping(value = "add-product-name-description", method = RequestMethod.POST)
-    public void addProduct(@RequestParam("name") String name, @RequestParam("description") String description) {
+    public void addProductNameDescription(@RequestParam("name") String name, @RequestParam("description") String description) {
         productService.addProductNameDescription(name, description);
     }
 
@@ -43,7 +43,7 @@ public class ProductControler {
                            @RequestParam("description") String description,
                            @RequestParam("category") String category,
                            @RequestParam("amount") Integer amount,
-                           @RequestParam("value") String value,
+                           @RequestParam("value") BigDecimal value,
                            @RequestParam("id-image") Integer idImage) {
         productService.addProduct(name, description, category, amount, value, idImage);
     }
@@ -54,7 +54,7 @@ public class ProductControler {
                            @RequestParam("description") String description,
                            @RequestParam("category") String category,
                            @RequestParam("amount") Integer amount,
-                           @RequestParam("value") String value,
+                           @RequestParam("value") BigDecimal value,
                            @RequestParam("id-image") Integer idImage) {
         productService.updateProduct(idProduct, name, description, category, amount, value, idImage);
     }

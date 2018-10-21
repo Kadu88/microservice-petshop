@@ -14,6 +14,8 @@ public class CartService {
     @Autowired
     private CartRepository cartRepository;
 
+    @Autowired
+    private ItemCartService itemCartService;
 
     public Cart getCartByIdCart(Integer idCart) {
         Optional<Cart> existingCart = cartRepository.findById(idCart);
@@ -39,4 +41,11 @@ public class CartService {
         }
     }
 
+    public void cleanCartByIdCart(Integer idCart) {
+        itemCartService.cleanCartByIdCart(idCart);
+    }
+
+    public void cleanCartByIdUser(Integer idUser) {
+        itemCartService.cleanCartByIdUser(idUser);
+    }
 }

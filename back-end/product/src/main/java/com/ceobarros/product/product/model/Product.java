@@ -10,7 +10,9 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Component
@@ -41,8 +43,10 @@ public class Product implements Serializable {
     @Column(name = "amount")
     private Integer amount;
 
-    @Column(name = "value")
-    private String value;
+    @Column(name = "value", precision=8, scale=2)
+    @Digits(integer=8, fraction=2)
+    @JsonFormat(shape=JsonFormat.Shape.STRING)
+    private BigDecimal value;
 
     @Column(name = "id_image")
     private Integer idImage;
@@ -69,7 +73,9 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public Product(String name, String description, String category, Integer amount, String value, Integer idImage, LocalDateTime creationDate, LocalDateTime lastChangeDate) {
+    public Product(String name, String description, String category, Integer amount,
+                   @Digits(integer = 9, fraction = 2) BigDecimal value, Integer idImage,
+                   LocalDateTime creationDate, LocalDateTime lastChangeDate) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -120,11 +126,11 @@ public class Product implements Serializable {
         this.amount = amount;
     }
 
-    public String getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 

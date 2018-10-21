@@ -6,7 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CartRepository extends CrudRepository<Cart, Integer>{
 
-    @Query("SELECT c FROM cart c WHERE c.idUser = ?1")
-    Cart findCartByIdUser(Integer idUser);
+    @Query("SELECT c FROM cart c WHERE c.idUser = ?1") Cart findCartByIdUser(Integer idUser);
 
 }

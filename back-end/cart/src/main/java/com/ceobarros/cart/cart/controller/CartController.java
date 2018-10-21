@@ -36,6 +36,12 @@ public class CartController {
     public Cart findByIdUser(@RequestParam("id-user") Integer idUser) { return cartService.getCartByIdUser(idUser);
     }
 
+    @RequestMapping(value = "clean-cart-by-id-cart", method = RequestMethod.GET )
+    public void cleanCartByIdCart(@RequestParam("id-cart") Integer idCart) { cartService.cleanCartByIdCart(idCart);
+    }
 
+    @RequestMapping(value = "clean-cart-by-id-user", method = RequestMethod.GET )
+    public void cleanCartByIdUser(@RequestParam("id-user") Integer idUser) { cartService.cleanCartByIdUser(idUser);
+    }
 
 }
