@@ -37,7 +37,7 @@ public class Cart implements Serializable {
     @Convert(converter = LocalDateTimeConverter.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime creationDate;
 
     @Column(name = "payment_sent")
@@ -62,7 +62,7 @@ public class Cart implements Serializable {
     @Convert(converter = LocalDateTimeConverter.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime lastChangeDate;
 
     public Cart() {
