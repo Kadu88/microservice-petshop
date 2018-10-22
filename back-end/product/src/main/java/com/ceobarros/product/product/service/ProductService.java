@@ -37,7 +37,7 @@ public class ProductService {
         product.setDescription(description.isEmpty() ? product.getDescription() : description);
         product.setCategory(category.isEmpty() ? product.getCategory() : category);
         product.setAmount(amount == null ? product.getAmount() : amount);
-        product.setValue(value.equals(null) ? product.getValue() : value);
+        product.setValue(value == null ? product.getValue() : value);
         product.setIdImage(idImage == null ? product.getIdImage() : idImage);
         product.setLastChangeDate(LocalDateTime.now());
         productRepository.save(product);
