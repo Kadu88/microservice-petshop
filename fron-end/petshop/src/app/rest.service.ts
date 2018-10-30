@@ -13,10 +13,10 @@ export class RestService {
   private headers: HttpHeaders;
 
   constructor(private http: HttpClient) {
-    // this.headers = new HttpHeaders().set(
-    //   'Content-Type',
-    //   'application/json; charset-UTF-8'
-    // );
+     this.headers = new HttpHeaders().set(
+       'Content-Type',
+       'application/json; charset-UTF-8'
+     );
   }
 
   public get(path: string, params?: HttpParams): Observable<any> {

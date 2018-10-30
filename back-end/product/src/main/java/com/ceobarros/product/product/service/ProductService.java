@@ -26,9 +26,10 @@ public class ProductService {
         return existingProduct.orElse(null);
     }
 
-    public void addProduct(String name, String description, String category, Integer amount, BigDecimal value) {
+    public void addProduct(Product product) {
         LocalDateTime now = LocalDateTime.now();
-        Product product = new Product(name, description, category, amount, value, now, now);
+        product.setCreationDate(now);
+        product.setLastChangeDate(now);
         productRepository.save(product);
     }
     public void updateProduct(Integer idProduct, String name, String description, String category, Integer amount, BigDecimal value, Integer idImage) {

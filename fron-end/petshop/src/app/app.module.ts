@@ -24,7 +24,6 @@ import { AppRoutingModule } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    ProductComponent,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -38,15 +38,20 @@ public class ProductControler {
     public void addProductNameDescription(@RequestParam("name") String name, @RequestParam("description") String description) {
         productService.addProductNameDescription(name, description);
     }
-
     @RequestMapping(value = "add-product", method = RequestMethod.POST)
-    public void addProduct(@RequestParam("name") String name,
-                           @RequestParam("description") String description,
-                           @RequestParam("category") String category,
-                           @RequestParam("amount") Integer amount,
-                           @RequestParam("value") BigDecimal value) {
-        productService.addProduct(name, description, category, amount, value);
+    public void addProduct(@RequestBody(required = false) Product product) {
+        productService.addProduct(product);
     }
+
+
+//    @RequestMapping(value = "add-product", method = RequestMethod.POST)
+//    public void addProduct(@RequestParam("name") String name,
+//                           @RequestParam("description") String description,
+//                           @RequestParam("category") String category,
+//                           @RequestParam("amount") Integer amount,
+//                           @RequestParam("value") BigDecimal value) {
+//        productService.addProduct(name, description, category, amount, value);
+//    }
 
     @RequestMapping(value = "update-product", method = RequestMethod.POST)
     public void updateProduct(@RequestParam("id-product") Integer idProduct,

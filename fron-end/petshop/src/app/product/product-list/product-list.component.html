@@ -1,10 +1,11 @@
 <h2 style="text-align: center">Product</h2>
 
 <mat-tab-group dynamicHeight mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
-  <mat-tab disabled>
+  <mat-tab>
 
     <mat-card>
       <table class="table table-bordered table-hover table-condensed table-responsive">
+        
         <tr>
           <th>Name</th>
           <th>Category</th>
@@ -25,4 +26,4 @@
     </mat-card>
 
   </mat-tab>
-</mat>
+</mat-tab-group>

@@ -48,9 +48,8 @@
         </div>
         <div class="row">
           <div class="col">
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>Selecione a Categoria do Produto</mat-label>
-              <input matInput maxlength="256" name="categoria" [(ngModel)]="produto.category" required>
+            <mat-form-field appearance="outline">
+              <input matInput {{ produto.categoryComponent }} >
             </mat-form-field>
           </div>
 

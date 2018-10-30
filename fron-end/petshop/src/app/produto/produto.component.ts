@@ -4,6 +4,7 @@ import { Produto } from '../model/produto';
 import { ProdutoService } from './produto.service';
 import { merge, of } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
+import { Category, CategoryComponent } from '../product/category/category.component';
 
 
 @Component({
@@ -16,11 +17,15 @@ export class ProdutoComponent implements OnInit {
   selected = new FormControl(0);
   produtos = [] as Produto[];
   produto = {} as Produto;
+  categoryComponent: CategoryComponent;
+
+
 
   constructor(private service: ProdutoService) { }
 
   ngOnInit() {
     this.processDataSource();
+
   }
 
   processDataSource() {
@@ -42,6 +47,7 @@ export class ProdutoComponent implements OnInit {
   onSubmit() {
     if (this.form.submitted && this.form.valid) {
       console.log(this.produto);
+      this.produto.category = this.categoryComponent.selectedValue;
       this.service.salvar(this.produto).subscribe(value => this.openListar());
     }
   }
