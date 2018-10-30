@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class ProductControler {
 
@@ -43,9 +44,8 @@ public class ProductControler {
                            @RequestParam("description") String description,
                            @RequestParam("category") String category,
                            @RequestParam("amount") Integer amount,
-                           @RequestParam("value") BigDecimal value,
-                           @RequestParam("id-image") Integer idImage) {
-        productService.addProduct(name, description, category, amount, value, idImage);
+                           @RequestParam("value") BigDecimal value) {
+        productService.addProduct(name, description, category, amount, value);
     }
 
     @RequestMapping(value = "update-product", method = RequestMethod.POST)

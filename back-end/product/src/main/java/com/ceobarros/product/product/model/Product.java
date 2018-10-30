@@ -74,14 +74,13 @@ public class Product implements Serializable {
     }
 
     public Product(String name, String description, String category, Integer amount,
-                   @Digits(integer = 9, fraction = 2) BigDecimal value, Integer idImage,
+                   @Digits(integer = 9, fraction = 2) BigDecimal value,
                    LocalDateTime creationDate, LocalDateTime lastChangeDate) {
         this.name = name;
         this.description = description;
         this.category = category;
         this.amount = amount;
         this.value = value;
-        this.idImage = idImage;
         this.creationDate = creationDate;
         this.lastChangeDate = lastChangeDate;
     }

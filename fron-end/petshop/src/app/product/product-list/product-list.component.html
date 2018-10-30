@@ -1,0 +1,28 @@
+<h2 style="text-align: center">Product</h2>
+
+<mat-tab-group dynamicHeight mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+  <mat-tab disabled>
+
+    <mat-card>
+      <table class="table table-bordered table-hover table-condensed table-responsive">
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Value</th>
+        </tr>
+
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.amount }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.value }}</td>
+        </tr>
+
+      </table>
+    </mat-card>
+
+  </mat-tab>
+</mat>

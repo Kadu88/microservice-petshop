@@ -9,21 +9,28 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
 import { MaterialModule } from './utils/material/material.module';
+import { ProductComponent } from './product/product.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { AppRoutingModule } from './app.routing';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    ProductComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
+    ProductComponent,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    LayoutModule
+    LayoutModule,
+    AppRoutingModule
   ],
   providers: [
     {

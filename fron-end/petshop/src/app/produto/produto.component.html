@@ -13,10 +13,10 @@
         </tr>
 
         <tr *ngFor="let produto of produtos">
-          <td>{{ produto.nome }}</td>
-          <td>{{ produto.categoria }}</td>
-          <td>{{ produto.quantidade }}</td>
-          <td>{{ produto.descricao }}</td>
+          <td>{{ produto.name }}</td>
+          <td>{{ produto.category }}</td>
+          <td>{{ produto.amount }}</td>
+          <td>{{ produto.description }}</td>
         </tr>
 
       </table>
@@ -32,30 +32,39 @@
           Favor preencher todos os campos obrigatórios
         </mat-error>
 
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Nome do produto</mat-label>
-          <input matInput maxlength="256" name="nome" [(ngModel)]="produto.nome" required>
-        </mat-form-field>
-
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Nome do produto</mat-label>
+              <input matInput maxlength="256" name="nome" [(ngModel)]="produto.name" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-auto">
+            <mat-form-field appearance="outline">
+              <mat-label>Valor (R$)</mat-label>
+              <input matInput maxlength="256" name="value" [(ngModel)]="produto.value" required>
+            </mat-form-field>
+          </div>
+        </div>
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Selecione a Categoria do Produto</mat-label>
-              <input matInput maxlength="256" name="categoria" [(ngModel)]="produto.categoria" required>
+              <input matInput maxlength="256" name="categoria" [(ngModel)]="produto.category" required>
             </mat-form-field>
           </div>
 
           <div class="col-md-auto">
             <mat-form-field appearance="outline">
               <mat-label>Quantidade</mat-label>
-              <input matInput maxlength="256" name="quantidade" [(ngModel)]="produto.quantidade" required>
+              <input matInput maxlength="256" name="quantidade" [(ngModel)]="produto.amount" required>
             </mat-form-field>
           </div>
         </div>
 
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Descrição do produto</mat-label>
-          <input matInput maxlength="256" name="descricao" [(ngModel)]="produto.descricao" required>
+          <input matInput maxlength="256" name="descricao" [(ngModel)]="produto.description" required>
         </mat-form-field>
 
         <button type="button" class="mat-raised-button mat-primary">

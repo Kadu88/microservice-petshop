@@ -16,6 +16,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       map(event => {
+        console.log(req)
         this.loadingService.onStarted(req);
         return event
       }),

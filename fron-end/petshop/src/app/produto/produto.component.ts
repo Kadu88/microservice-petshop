@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Produto } from '../model/produto';
-import { ProdutoService } from '../service/produto.service';
+import { ProdutoService } from './produto.service';
 import { merge, of } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 
@@ -41,6 +41,7 @@ export class ProdutoComponent implements OnInit {
 
   onSubmit() {
     if (this.form.submitted && this.form.valid) {
+      console.log(this.produto);
       this.service.salvar(this.produto).subscribe(value => this.openListar());
     }
   }
