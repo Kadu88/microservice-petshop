@@ -15,8 +15,7 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    public void addUser(String name, String email, String pass) {
-        User user = new User(name, email, pass);
+    public void addUser(User user) {
         user.setCreationDate(LocalDateTime.now());
         userRepository.save(user);
     }

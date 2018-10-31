@@ -46,25 +46,27 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput {{ produto.categoryComponent }} >
-            </mat-form-field>
-          </div>
 
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Descrição do produto</mat-label>
+          <input matInput maxlength="256" name="descricao" [(ngModel)]="produto.description" required>
+        </mat-form-field>
+
+        <div class="row">
           <div class="col-md-auto">
             <mat-form-field appearance="outline">
               <mat-label>Quantidade</mat-label>
               <input matInput maxlength="256" name="quantidade" [(ngModel)]="produto.amount" required>
             </mat-form-field>
           </div>
+          <div class="col">
+              <div class="mat-form-field-outline ng-tns-c4-2 ng-star-inserted" appearance="outline">
+                  <app-category></app-category>
+              </div>
+          </div>
         </div>
 
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Descrição do produto</mat-label>
-          <input matInput maxlength="256" name="descricao" [(ngModel)]="produto.description" required>
-        </mat-form-field>
+
 
         <button type="button" class="mat-raised-button mat-primary">
           Anexar Imagem

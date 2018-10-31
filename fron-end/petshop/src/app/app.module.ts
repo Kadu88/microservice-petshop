@@ -12,7 +12,8 @@ import { MaterialModule } from './utils/material/material.module';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { AppRoutingModule } from './app.routing';
-
+import { CategoryComponent } from './product/category/category.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { AppRoutingModule } from './app.routing';
     DashboardComponent,
     ProdutoComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    CategoryComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

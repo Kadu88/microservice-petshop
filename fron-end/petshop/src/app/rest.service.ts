@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 
 
-const URL = environment.URL;
+// const URL = environment.URL;
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class RestService {
     let data = new Observable(observer => (dataObserver = observer));
 
     this.http
-      .get(URL + path, {
+      .get(path, {
         headers: this.headers,
         params: params,
         reportProgress: true
@@ -43,7 +43,7 @@ export class RestService {
     let data = new Observable(observer => (dataObserver = observer));
     let bodyJson = JSON.stringify(body);
     this.http
-      .post(URL + path, bodyJson, { headers: this.headers })
+      .post(path, bodyJson, { headers: this.headers })
       .subscribe(dados => {
         if (dataObserver != null) {
           dataObserver.next(dados);
@@ -59,7 +59,7 @@ export class RestService {
 
     let bodyJson = JSON.stringify(body);
     this.http
-      .put(URL + path, bodyJson, { headers: this.headers })
+      .put(path, bodyJson, { headers: this.headers })
       .subscribe(dados => {
         if (dataObserver != null) {
           dataObserver.next(dados);
@@ -72,7 +72,7 @@ export class RestService {
   public delete(path: string, variable: any): Observable<any> {
     let dataObserver;
     let data = new Observable(observer => (dataObserver = observer));
-    this.http.delete(URL + path + '/' + variable).subscribe(dados => {
+    this.http.delete(path + '/' + variable).subscribe(dados => {
       if (dataObserver != null) {
         dataObserver.next(dados);
       }

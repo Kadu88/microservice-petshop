@@ -4,7 +4,9 @@ import { Produto } from '../model/produto';
 import { RestService } from '../rest.service';
 
 
+URL: 'http://localhost:8086/'
 const PATH = 'product';
+const URL_PATH = URL + PATH;
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +16,18 @@ export class ProdutoService {
   constructor(private rest: RestService) { }
 
   listar(): Observable<any> {
-    return this.rest.get(PATH + '/get-all-product');
+    return this.rest.get(URL_PATH + '/get-all-product');
   }
 
   count(): Observable<any> {
-    return this.rest.get(PATH + '/count');
+    return this.rest.get(URL_PATH + '/count');
   }
 
   salvar(product: Produto): Observable<any> {
-    console.log('produto-service' + product);
-    return this.rest.post(PATH + '/add-product', product);
+    return this.rest.post(URL_PATH + '/add-product', product);
   }
 
   deletar(produto: Produto): Observable<any> {
-    return this.rest.delete(PATH, produto.ididProduto);
+    return this.rest.delete(URL_PATH, produto.ididProduto);
   }
 }

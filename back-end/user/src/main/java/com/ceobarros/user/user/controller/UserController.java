@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class UserController {
 
@@ -22,9 +20,10 @@ public class UserController {
     webServerFactoryCustomizer() {
         return factory -> factory.setContextPath("/user");
     }
+
     @RequestMapping(value = "add-user", method = RequestMethod.POST)
-    public void addUser(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("pass") String pass) {
-        userService.addUser(name, email, pass);
+    public void addUser(@RequestBody User user) {
+        userService.addUser(user);
     }
 
     @RequestMapping(value = "/find-user-by-id", method = RequestMethod.GET)

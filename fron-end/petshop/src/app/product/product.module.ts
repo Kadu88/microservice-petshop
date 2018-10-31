@@ -16,6 +16,9 @@ import { CategoryComponent } from './category/category.component';
     imports: [
         HttpClientModule,
         CommonModule
+    ],
+    exports: [
+        CategoryComponent
     ]
 })
 export class ProductModule {}

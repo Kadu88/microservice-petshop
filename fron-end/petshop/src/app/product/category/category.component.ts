@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
+import { Category } from 'src/app/model/category';
 
 @Component({
-  selector: 'category-component',
+  selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
@@ -15,10 +16,7 @@ export class CategoryComponent {
     {value: 'Medication', viewValue: 'Medication'},
     {value: 'Toys', viewValue: 'Toys'}
   ];
-  selectedValue:string;
-}
 
-export interface Category {
-  value: string;
-  viewValue: string;
+  @Input() selectedValue='';
+  
 }

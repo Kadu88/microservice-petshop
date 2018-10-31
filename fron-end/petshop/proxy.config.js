@@ -1,7 +1,8 @@
 const proxy = [
     {
-      context: '/product',
-      target: 'http://localhost:8086',
+      context: 
+        '/user',
+      target: 'http://localhost:8086'
     //   pathRewrite: {'^/product' : ''}
     }
   ];

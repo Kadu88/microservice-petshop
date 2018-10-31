@@ -1,7 +1,10 @@
-<mat-form-field>
-  <mat-select placeholder="Product Category" [(ngModel)]="selectedValue" >
-    <mat-option *ngFor="let category of categorys" [value]="category.value">
-      {{category.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div>
+           /1 {{selectedValue}} 1/ 
+  <mat-form-field>
+    <mat-select placeholder="Product Category" [(ngModel)]="selectedValue" >
+      <mat-option *ngFor="let category of categorys" [value]="category.value">
+        {{category.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

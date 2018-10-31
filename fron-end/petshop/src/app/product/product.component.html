@@ -1,7 +1,7 @@
 <h2 style="text-align: center">Product</h2>
 
 <mat-tab-group dynamicHeight mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
-  <mat-tab>
+  <mat-tab disabled>
 
     <mat-card>
       <table class="table table-bordered table-hover table-condensed table-responsive">
@@ -25,4 +25,70 @@
     </mat-card>
 
   </mat-tab>
+
+  <mat-tab disabled>
+    <mat-card>
+
+      <form #form=ngForm (ngSubmit)="onSubmit()">
+        <mat-error *ngIf="form.submitted && form.invalid">
+          Please complete the required fields
+        </mat-error>
+
+        <div class="row">
+
+          <div class="col">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Product's name</mat-label>
+              <input matInput maxlength="256" name="name" [(ngModel)]="product.name" required autofocus>
+            </mat-form-field>
+          </div>
+          <div class="col-md-auto">
+            <mat-form-field appearance="outline">
+              <mat-label>Value ($)</mat-label>
+              <input matInput maxlength="256" name="value" [(ngModel)]="product.value" required>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Product's description</mat-label>
+          <input matInput maxlength="256" name="description" [(ngModel)]="product.description" required>
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col-md-auto">
+            <mat-form-field appearance="outline">
+              <mat-label>Amount</mat-label>
+              <input matInput maxlength="256" name="amount" [(ngModel)]="product.amount" required>
+            </mat-form-field>
+          </div>
+          <div layout="row" layout-align="center center">
+                  <app-category name="category" [(ngModel)]="product.category"></app-category>
+          </div>
+        </div>
+
+
+
+        <button type="button" class="mat-raised-button mat-primary">
+          Attach Image
+        </button>
+        &nbsp;
+        <button type="submit" class="mat-raised-button mat-primary">
+          Send
+        </button>
+      </form>
+
+    </mat-card>
+
+  </mat-tab>
 </mat-tab-group>
+
+<span class="fab" style="z-index: 9999;">
+  <button mat-fab (click)="openCadastro()" *ngIf="selected.value == 0">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-fab (click)="openListar()" *ngIf="selected.value == 1">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</span>
+
