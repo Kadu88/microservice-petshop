@@ -17,7 +17,8 @@ export class UserService {
     constructor(private rest: RestService, ) { }
 
     addUser(user: User): Observable<any> {
-        console.log(user)
+        console.log(URL_PATH);
+        console.log(user);
         return this.rest.post(URL_PATH + '/add-user', user);
       }
 

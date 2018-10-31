@@ -63,7 +63,14 @@
             </mat-form-field>
           </div>
           <div layout="row" layout-align="center center">
-                  <app-category name="category" [(ngModel)]="product.category"></app-category>
+
+            <mat-form-field>
+              <mat-select placeholder="Product Category" name="category" [(ngModel)]="selectedValue" >
+                <mat-option *ngFor="let category of categorys" [value]="category.value">
+                 <mat-label>{{category.viewValue}}</mat-label>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
 

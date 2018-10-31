@@ -4,6 +4,7 @@ import { Product } from '../model/product';
 import { ProductService } from './product.service';
 import { NgForm, FormControl } from '@angular/forms';
 import { CategoryComponent } from './category/category.component';
+import { Category } from '../model/category';
 
 @Component({
   selector: 'app-product',
@@ -19,7 +20,16 @@ export class ProductComponent implements OnInit {
 
   category: CategoryComponent;
 
-  @Input() selectedValue:string = '';
+  categorys: Category[] = [
+    {value: 'Accessories', viewValue: 'Accessories'},
+    {value: 'Bath and Tosa', viewValue: 'Bath and Tosa'},
+    {value: 'Clothing', viewValue: 'Clothing'},
+    {value: 'Food', viewValue: 'Food'},
+    {value: 'Medication', viewValue: 'Medication'},
+    {value: 'Toys', viewValue: 'Toys'}
+  ];
+
+  @Input() selectedValue='';
 
   constructor(private service: ProductService) { }
 
@@ -48,7 +58,7 @@ export class ProductComponent implements OnInit {
       console.log(this.product);
       console.log('selected' + this.selectedValue);
       console.log('selected' + this.category);
-      
+      this.product.category = this.selectedValue;
       //console.log(this.category);
       //this.product.category = this.category.selectedValue;
       this.service.addProduct(this.product).subscribe(value => this.product);

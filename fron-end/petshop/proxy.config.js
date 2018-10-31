@@ -1,10 +1,15 @@
 const proxy = [
     {
-      context: 
-        '/user',
-      target: 'http://localhost:8086'
-    //   pathRewrite: {'^/product' : ''}
-    }
+      context: '*', target: 'http://localhost:*'
+
+      // context: '/user', target: 'http://localhost:8085',
+      // context: '/product', target: 'http://localhost:8086',
+      // context: '/cart', target: 'http://localhost:8087'
+      
+
+      //   pathRewrite: {'^/product' : ''}
+
+  }
   ];
   module.exports = proxy;
 //   context: 'O contexto que deve ser requisitado para tratar o proxy/redirecionamento da requisição'

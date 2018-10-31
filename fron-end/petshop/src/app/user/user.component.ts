@@ -23,7 +23,8 @@ export class UserComponent implements OnInit {
       // console.log('selected' + this.selectedValue);
       // //console.log(this.category);
       //this.product.category = this.category.selectedValue;
-      this.service.addUser(this.user).subscribe(value => this.user);
+      console.log(this.user);
+      this.service.addUser(this.user).subscribe(user => this.user);
     }
   }
 }
