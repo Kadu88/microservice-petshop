@@ -6,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProdutoComponent } from './produto/produto.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
 import { MaterialModule } from './utils/material/material.module';
 import { ProductComponent } from './product/product.component';
@@ -19,7 +18,6 @@ import { UserComponent } from './user/user.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    ProdutoComponent,
     ProductComponent,
     ProductListComponent,
     CategoryComponent,

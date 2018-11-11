@@ -10,6 +10,7 @@ import { User } from '../model/user';
 })
 export class UserComponent implements OnInit {
   @ViewChild('form') form: NgForm;
+
   constructor(private service: UserService) { }
 
   user = {} as User;
@@ -27,4 +28,5 @@ export class UserComponent implements OnInit {
       this.service.addUser(this.user).subscribe(user => this.user);
     }
   }
+
 }
