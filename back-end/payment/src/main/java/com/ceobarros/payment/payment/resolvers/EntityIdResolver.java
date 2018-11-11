@@ -1,4 +1,4 @@
-package com.ceobarros.user.user.resolvers;
+package com.ceobarros.payment.payment.resolvers;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import com.fasterxml.jackson.annotation.ObjectIdResolver;
