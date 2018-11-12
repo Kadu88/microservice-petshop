@@ -48,4 +48,10 @@ public class ProductService {
         Product product = new Product(name, description);
         productRepository.save(product);
     }
+
+    public byte[] findImageById(Integer idImage) {
+        Optional<Image> existingImage = productRepository.findById(idImage);
+        return existingImage.orElse(null);
+
+    }
 }

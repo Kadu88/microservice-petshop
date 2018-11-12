@@ -63,4 +63,10 @@ public class ProductControler {
                            @RequestParam("id-image") Integer idImage) {
         productService.updateProduct(idProduct, name, description, category, amount, value, idImage);
     }
+
+    @RequestMapping(value = "get-image-by-id", method = RequestMethod.GET)
+    @ResponseBody
+    public byte[] findImageById(@RequestParam("id-image") Integer idImage) {
+        return productService.findImageById(idImage);
+    }
 }
