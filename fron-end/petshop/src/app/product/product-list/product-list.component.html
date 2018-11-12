@@ -1,11 +1,13 @@
 <h2 style="text-align: center">Product</h2>
 
-<mat-tab-group dynamicHeight mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+<mat-tab-group>
   <mat-tab>
 
     <mat-card>
       <table class="table table-bordered table-hover table-condensed table-responsive">
         
+
+
         <tr>
           <th>Name</th>
           <th>Category</th>
@@ -15,11 +17,11 @@
         </tr>
 
         <tr *ngFor="let product of products">
-          <td>{{ product.name }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.amount }}</td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.value }}</td>
+          <td>*ngIf={{ product.name }}</td>
+          <td>*ngIf={{ product.category }}</td>
+          <td>*ngIf={{ product.amount }}</td>
+          <td>*ngIf={{ product.description }}</td>
+          <td>*ngIf={{ product.value }}</td>
         </tr>
 
       </table>
