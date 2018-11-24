@@ -31,15 +31,30 @@ public class Image implements Serializable {
     private Integer idProduct;
 
     @Lob
-    @Column(name = "image")
-    private Blob imageMedia;
+    @Column(name = "image_small")
+    private Blob imageSmall;
+
+    @Lob
+    @Column(name = "image_medium")
+    private Blob imageMedium;
+
+    @Lob
+    @Column(name = "image_large")
+    private Blob imageLarge;
 
     public Image() {
     }
 
-    public Image(Integer idProduct, Blob image_media) {
+    public Image(Integer idProduct, Blob imageMedium) {
         this.idProduct = idProduct;
-        this.imageMedia = image_media;
+        this.imageMedium = imageMedium;
+    }
+
+    public Image(Integer idProduct, Blob imageSmall, Blob imageMedium, Blob imageLarge) {
+        this.idProduct = idProduct;
+        this.imageSmall = imageSmall;
+        this.imageMedium = imageMedium;
+        this.imageLarge = imageLarge;
     }
 
     public Integer getIdImage() {
@@ -58,11 +73,27 @@ public class Image implements Serializable {
         this.idProduct = idProduct;
     }
 
-    public Blob getImageMedia() {
-        return imageMedia;
+    public Blob getImageSmall() {
+        return imageSmall;
     }
 
-    public void setImageMedia(Blob imageMedia) {
-        this.imageMedia = imageMedia;
+    public void setImageSmall(Blob imageSmall) {
+        this.imageSmall = imageSmall;
+    }
+
+    public Blob getImageMedium() {
+        return imageMedium;
+    }
+
+    public void setImageMedium(Blob imageMedium) {
+        this.imageMedium = imageMedium;
+    }
+
+    public Blob getImageLarge() {
+        return imageLarge;
+    }
+
+    public void setImageLarge(Blob imageLarge) {
+        this.imageLarge = imageLarge;
     }
 }

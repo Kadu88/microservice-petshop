@@ -13,6 +13,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { AppRoutingModule } from './app.routing';
 import { CategoryComponent } from './product/category/category.component';
 import { UserComponent } from './user/user.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserComponent } from './user/user.component';
     ProductComponent,
     ProductListComponent,
     CategoryComponent,
-    UserComponent
+    UserComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

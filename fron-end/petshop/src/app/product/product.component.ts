@@ -62,6 +62,7 @@ export class ProductComponent implements OnInit {
       //console.log(this.category);
       //this.product.category = this.category.selectedValue;
       this.service.addProduct(this.product).subscribe(value => this.product);
+      console.log(this.product.idProduct);
     }
   }
 

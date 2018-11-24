@@ -1,6 +1,8 @@
 package com.ceobarros.product.product.service;
 
+import com.ceobarros.product.product.model.Image;
 import com.ceobarros.product.product.model.Product;
+import com.ceobarros.product.product.repository.ImageRepository;
 import com.ceobarros.product.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,6 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
-
 
     public Iterable<Product> findAllProduct() {
         return productRepository.findAll();
@@ -32,6 +33,7 @@ public class ProductService {
         product.setLastChangeDate(now);
         productRepository.save(product);
     }
+
     public void updateProduct(Integer idProduct, String name, String description, String category, Integer amount, BigDecimal value, Integer idImage) {
         Product product = findProductById(idProduct);
         product.setName(name.isEmpty() ? product.getName() : name);
@@ -47,11 +49,5 @@ public class ProductService {
     public void addProductNameDescription(String name, String description) {
         Product product = new Product(name, description);
         productRepository.save(product);
-    }
-
-    public byte[] findImageById(Integer idImage) {
-        Optional<Image> existingImage = productRepository.findById(idImage);
-        return existingImage.orElse(null);
-
     }
 }

@@ -14,7 +14,7 @@ const URL_PATH = URL + PATH;
 })
 export class UserService {
 
-    constructor(private rest: RestService, ) { }
+    constructor(private rest: RestService) { }
 
     addUser(user: User): Observable<any> {
         console.log(URL_PATH);

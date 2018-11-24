@@ -1,6 +1,8 @@
 package com.ceobarros.product.product.controller;
 
+import com.ceobarros.product.product.model.Image;
 import com.ceobarros.product.product.model.Product;
+import com.ceobarros.product.product.service.ImageService;
 import com.ceobarros.product.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.sql.Blob;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -16,6 +19,9 @@ public class ProductControler {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private ImageService imageService;
 
     @Bean
     public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>
@@ -66,7 +72,12 @@ public class ProductControler {
 
     @RequestMapping(value = "get-image-by-id", method = RequestMethod.GET)
     @ResponseBody
-    public byte[] findImageById(@RequestParam("id-image") Integer idImage) {
-        return productService.findImageById(idImage);
+    public Image findImageById(@RequestParam("id-image") Integer idImage) {
+        return imageService.findImageById(idImage);
+    }
+
+    @RequestMapping(value = "add-image-medium", method = RequestMethod.POST)
+    public void addImageMedium(@RequestParam("id-product") Integer idProduct, @RequestParam("image-medium") Blob imageMedium) {
+        imageService.addImageMedium(idProduct, imageMedium);
     }
 }
