@@ -14,7 +14,7 @@ import { Category } from '../model/category';
 export class ProductComponent implements OnInit {
   @ViewChild('form') form: NgForm;
   selected = new FormControl(0);
-  
+
   products = [] as Product[];
   product = {} as Product;
 
@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
     {value: 'Toys', viewValue: 'Toys'}
   ];
 
-  @Input() selectedValue='';
+  @Input() selectedValue = '';
 
   constructor(private service: ProductService) { }
 
@@ -39,8 +39,8 @@ export class ProductComponent implements OnInit {
 
   processDataSource() {
     this.service.list().subscribe(response => {
-      this.products = response
-    })
+      this.products = response;
+    });
   }
 
   openCadastro() {
@@ -59,8 +59,8 @@ export class ProductComponent implements OnInit {
       console.log('selected' + this.selectedValue);
       console.log('selected' + this.category);
       this.product.category = this.selectedValue;
-      //console.log(this.category);
-      //this.product.category = this.category.selectedValue;
+      // console.log(this.category);
+      // this.product.category = this.category.selectedValue;
       this.service.addProduct(this.product).subscribe(value => this.product);
     }
   }

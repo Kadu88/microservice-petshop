@@ -4,7 +4,7 @@ import { RestService } from '../rest.service';
 import { Product } from '../model/product';
 
 
-const URL = 'http://localhost:8086/'
+const URL = 'http://localhost:8086/';
 const PATH = 'product';
 const URL_PATH = URL + PATH;
 

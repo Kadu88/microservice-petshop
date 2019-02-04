@@ -8,7 +8,7 @@ import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
-    declarations: [ 
+    declarations: [
         ProductComponent,
         ProductListComponent,
         CategoryComponent
