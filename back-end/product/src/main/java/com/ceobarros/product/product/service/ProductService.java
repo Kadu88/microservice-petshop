@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
+
+import com.ceobarros.product.product.model.Image;
 
 @Service
 public class ProductService {
@@ -50,4 +51,14 @@ public class ProductService {
         Product product = new Product(name, description);
         productRepository.save(product);
     }
+<<<<<<< HEAD
+=======
+
+    public byte[] findImageById(Integer idImage) {
+//        Optional<Image> existingImage = productRepository.findById(idImage);
+        //Optional<Image> existingImage = productRepository.findById(idImage);
+        //return existingImage.orElse(null);
+        return null;
+    }
+>>>>>>> 0c290aca6da035056751f386b6460eb5ae615112
 }

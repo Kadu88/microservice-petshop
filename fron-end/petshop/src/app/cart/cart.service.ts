@@ -28,6 +28,4 @@ export class CartService {
     createCart(): Observable<any> {
         return this.rest.get(URL_PATH + '/create-cart');
     }
-
-
 }
