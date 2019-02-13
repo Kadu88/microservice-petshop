@@ -20,23 +20,11 @@ export class UserService {
         console.log(URL_PATH);
         console.log(user);
         return this.rest.post(URL_PATH + '/add-user', user);
-      }
+    }
 
 
     list(): Observable<any> {
         return this.rest.get(URL_PATH + '/add');
 
     }
-
-
-
-
-
-
-
-
-
-
-
-    
 }

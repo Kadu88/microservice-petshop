@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { CategoryComponent } from './product/category/category.component';
 import { UserComponent } from './user/user.component';
 import { CartComponent } from './cart/cart.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CartComponent } from './cart/cart.component';
     BrowserAnimationsModule,
     MaterialModule,
     LayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HomeModule
   ],
   providers: [
     {
